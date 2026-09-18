@@ -32,9 +32,28 @@
 .process-list div:not(:last-child)::after{color:var(--copper);content:'→';font-size:1.45rem;position:absolute;right:-24px;top:46px}
 @media(max-width:560px){.process-list div:not(:last-child)::after{content:'↓';left:0;right:auto;top:auto;bottom:-30px}}
 
-.route-word{clip-path:inset(0 100% 0 0);display:inline-block;opacity:.02;transform:translateX(-.12em);transition:clip-path 900ms cubic-bezier(.22,1,.36,1),opacity 500ms ease,transform 900ms cubic-bezier(.22,1,.36,1)}
-.routes-section.is-visible .route-word{clip-path:inset(0 0 0 0);opacity:1;transform:translateX(0)}
-@media(prefers-reduced-motion:reduce){.route-word{clip-path:none;opacity:1;transform:none;transition:none}}
-.routes-content h2 em{clip-path:inset(0 100% 0 0);display:inline-block;opacity:.02;transform:translateX(-.12em);transition:clip-path 900ms cubic-bezier(.22,1,.36,1),opacity 500ms ease,transform 900ms cubic-bezier(.22,1,.36,1)}
-.routes-section.is-visible .routes-content h2 em{clip-path:inset(0 0 0 0);opacity:1;transform:translateX(0)}
-@media(prefers-reduced-motion:reduce){.routes-content h2 em{clip-path:none;opacity:1;transform:none;transition:none}}
+.route-word{color:var(--navy);display:inline-block;font-family:var(--serif);font-weight:400;min-height:1em;}
+.typewriter-text{display:inline-block;min-width:10ch;}
+.typewriter-caret{border-right:2px solid currentColor;display:inline-block;height:.78em;margin-left:.08em;transform:translateY(.04em);animation:typewriter-blink 900ms steps(1,end) infinite;}
+@keyframes typewriter-blink{0%,45%{opacity:1}46%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.typewriter-caret{animation:none;opacity:1}.typewriter-text{min-width:0}}
+
+/* Quote form polish: clearer hierarchy, stronger controls, and calm feedback. */
+.quote-layout{align-items:start}
+.quote-intro>p:not(.eyebrow){line-height:1.8}
+.quote-side-note{max-width:300px}
+.quote-form{border-top:0;padding-top:0}
+.form-status{border:1px solid rgba(20,43,59,.12);border-left:2px solid var(--copper);background:rgba(255,255,255,.54);color:var(--navy);min-height:50px;padding:14px 16px}
+.form-grid{column-gap:26px;row-gap:25px}
+.quote-form label{color:var(--navy);line-height:1.3}
+.quote-form label span{color:var(--gray);letter-spacing:0}
+.quote-form input,.quote-form select,.quote-form textarea{background:rgba(255,255,255,.46);min-height:50px;transition:background 160ms ease,border-color 160ms ease,box-shadow 160ms ease}
+.quote-form input:hover,.quote-form select:hover,.quote-form textarea:hover{background:var(--white);border-color:rgba(20,43,59,.35)}
+.quote-form input:focus,.quote-form select:focus,.quote-form textarea:focus{background:var(--white);box-shadow:0 0 0 3px rgba(184,106,66,.12)}
+.quote-form textarea{min-height:138px}
+.quote-form textarea::placeholder{color:#68747c;opacity:1}
+.quote-form .button{margin-top:5px;min-height:52px}
+.quote-form .button:focus-visible,.quote-form .check-row input:focus-visible{outline:3px solid rgba(184,106,66,.35);outline-offset:3px}
+.form-footnote{max-width:54ch;line-height:1.5}
+@media(max-width:900px){.quote-layout{padding-top:72px}.quote-side-note{max-width:none}.quote-form{padding-top:0}}
+@media(max-width:560px){.form-status{margin-bottom:30px}.form-grid{row-gap:21px}.quote-form textarea{min-height:120px}}
