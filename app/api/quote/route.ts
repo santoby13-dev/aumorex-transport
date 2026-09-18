@@ -1,4 +1,4 @@
-const requiredFields = ["name", "phone", "email", "vehicle", "collection", "delivery", "date"] as const;
+const requiredFields = ["name", "vehicle", "collection", "delivery", "date"] as const;
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -14,17 +14,18 @@ export async function POST(request: Request) {
   const missing = requiredFields.filter((field) => !String(values[field] ?? "").trim());
   const email = String(values.email ?? "").trim();
 
-  if (missing.length || !/^\S+@\S+\.\S+$/.test(email)) {
-    return Response.json({ error: "Please complete the required fields with a valid email." }, { status: 400 });
+  const phone = String(values.phone ?? "").trim();
+  if (missing.length || (!phone && !/^\S+@\S+\.\S+$/.test(email)) || (email && !/^\S+@\S+\.\S+$/.test(email))) {
+    return Response.json({ error: "Please provide a phone number or a valid email, and complete the required fields." }, { status: 400 });
   }
 
   const text = [
     "New AUMOREX transport enquiry",
     "",
     `Contact name: ${values.name}`,
-    `Phone: ${values.phone}`,
-    `Email: ${email}`,
-    `Company: ${values.company || "—"}`,
+    `Phone: ${phone || "—"}`,
+    `Email: ${email || "—"}`,
+    `Additional information: ${values.details || "—"}`,
     `Vehicle: ${values.vehicle}`,
     `Approximate weight: ${values.weight || "—"}`,
     `Collection: ${values.collection}`,
@@ -32,8 +33,6 @@ export async function POST(request: Request) {
     `Preferred date: ${values.date}`,
     `Vehicle runs: ${values.running || "—"}`,
     `Flexible dates: ${values.flexible ? "Yes" : "No"}`,
-    "",
-    `Additional details: ${values.details || "—"}`,
   ].join("\n");
 
   const response = await fetch("https://api.resend.com/emails", {
