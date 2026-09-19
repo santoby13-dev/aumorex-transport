@@ -67,3 +67,5 @@
 .site-nav a.nav-cta,.site-nav a.nav-cta.active{color:var(--white)}
 .site-nav a.nav-cta:hover{color:var(--white)}
 .homepage .site-header.is-scrolled .site-nav a.nav-cta,.homepage .site-header.is-scrolled .site-nav a.nav-cta.active{color:var(--white)}
+.portfolio-grid{display:grid;gap:28px;grid-template-columns:repeat(2,1fr);margin:auto;max-width:var(--max);padding:100px 40px 120px}.portfolio-card{background:var(--warm);display:flex;flex-direction:column}.portfolio-image{display:block;aspect-ratio:1/1;overflow:hidden}.portfolio-image img{height:100%;object-fit:cover;transition:transform .5s ease;width:100%}.portfolio-image:hover img{transform:scale(1.04)}.portfolio-card-copy{padding:25px 28px 30px}.portfolio-card-copy h2{font-size:clamp(1.5rem,2.8vw,2.5rem);letter-spacing:-.045em;line-height:1.02;margin:8px 0 12px}.portfolio-card-copy p:not(.eyebrow){color:var(--gray);font-size:.9rem;margin:0 0 22px}.portfolio-card-copy .eyebrow{margin:0}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr;padding:70px 22px 80px}}
