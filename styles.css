@@ -11,6 +11,13 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media(max-width:560px){.back-to-top{bottom:18px;right:18px}}
 
+/* Use the approved favicon artwork consistently across every brand touchpoint. */
+.brand-mark{background:none;border-radius:9px;clip-path:none;display:block;height:40px;object-fit:cover;position:static;width:40px}
+.brand-mark.small{height:30px;width:30px}
+.footer-brand>span{display:flex;flex-direction:column}
+.footer-brand small{margin-left:0;margin-top:3px;text-align:left}
+.empty-mark{background:url("/favicon.svg") center/contain no-repeat;border:0;color:transparent;display:block;font-size:0;height:220px;transform:none;width:220px}
+
 /* Accessibility refinements for the compact brand system. */
 .brand small,.footer-brand small{font-size:.72rem;letter-spacing:.35em}
 .site-nav a,.language a,.footer-links a{font-size:.8rem}
@@ -59,3 +66,4 @@
 @media(max-width:560px){.form-status{margin-bottom:30px}.form-grid{row-gap:21px}.quote-form textarea{min-height:120px}}
 .site-nav a.nav-cta,.site-nav a.nav-cta.active{color:var(--white)}
 .site-nav a.nav-cta:hover{color:var(--white)}
+.homepage .site-header.is-scrolled .site-nav a.nav-cta,.homepage .site-header.is-scrolled .site-nav a.nav-cta.active{color:var(--white)}
