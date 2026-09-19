@@ -57,3 +57,5 @@
 .form-footnote{max-width:54ch;line-height:1.5}
 @media(max-width:900px){.quote-layout{padding-top:72px}.quote-side-note{max-width:none}.quote-form{padding-top:0}}
 @media(max-width:560px){.form-status{margin-bottom:30px}.form-grid{row-gap:21px}.quote-form textarea{min-height:120px}}
+.site-nav a.nav-cta,.site-nav a.nav-cta.active{color:var(--white)}
+.site-nav a.nav-cta:hover{color:var(--white)}
