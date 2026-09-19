@@ -38,7 +38,7 @@ export async function POST(request: Request) {
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from, to: [to], reply_to: email, subject: `AUMOREX quote request — ${values.vehicle}`, text }),
+    body: JSON.stringify({ from, to: [to], ...(email ? { reply_to: email } : {}), subject: `AUMOREX quote request — ${values.vehicle}`, text }),
   });
 
   if (!response.ok) return Response.json({ error: "Email delivery failed." }, { status: 502 });
