@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import { Manrope } from "next/font/google";
 import "../styles.css";
+
+const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "Dedicated Car Transport Across Western Europe | AUMOREX", template: "%s | AUMOREX transport" },
@@ -27,7 +30,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link rel="stylesheet" href="/brand/aumorex/brand.css" />
       </head>
-      <body>{children}</body>
+      <body className={manrope.className}>{children}</body>
     </html>
   );
 }

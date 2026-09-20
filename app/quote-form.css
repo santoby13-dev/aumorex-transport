@@ -18,6 +18,8 @@
 .quote-wizard input:focus,.quote-wizard select:focus,.quote-wizard textarea:focus{outline:2px solid var(--copper-dark);outline-offset:2px;box-shadow:none}
 .quote-wizard input::placeholder{color:var(--gray);opacity:1}
 .quote-wizard .quote-help{font-size:.82rem;color:var(--gray);margin:12px 0 0}
+.quote-wizard label .field-error{color:#843e2c;font-size:.78rem;font-weight:700;letter-spacing:0;text-transform:none}
+.quote-wizard input[aria-invalid=true],.quote-wizard select[aria-invalid=true],.quote-wizard textarea[aria-invalid=true]{border-color:#843e2c}
 .quote-wizard .check-row{min-height:44px;justify-content:flex-start!important;margin:16px 0!important}
 .quote-wizard .check-row input{min-height:0;height:18px;width:18px;flex:none}
 .quote-wizard .check-row span{font-size:.86rem}
