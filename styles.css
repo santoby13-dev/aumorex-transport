@@ -12,12 +12,13 @@
 @media(max-width:560px){.back-to-top{bottom:18px;right:18px}}
 
 /* Use the supplied AUMOREX artwork consistently across every brand touchpoint. */
-.brand-logo{display:block;height:72px;object-fit:contain;width:72px}
-.brand-logo-reversed{display:none}
-.homepage .brand-logo-primary{display:none}
-.homepage .brand-logo-reversed{display:block}
-.homepage .site-header.is-scrolled .brand-logo-primary{display:block}
-.homepage .site-header.is-scrolled .brand-logo-reversed{display:none}
+.brand-symbol{display:block;height:72px;object-fit:contain;width:72px}
+.brand-symbol-dark{display:block}
+.brand-symbol-light{display:none}
+.homepage .brand-symbol-light{display:block}
+.homepage .brand-symbol-dark{display:none}
+.homepage .site-header.is-scrolled .brand-symbol-light{display:none}
+.homepage .site-header.is-scrolled .brand-symbol-dark{display:block}
 .footer-logo{display:block;height:72px;object-fit:contain;width:72px}
 .sr-only{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);white-space:nowrap}
 .empty-mark{background:url("/brand/aumorex/svg/06_aumorex_symbol_primary_light_bg.svg") center/contain no-repeat;border:0;color:transparent;display:block;font-size:0;height:220px;transform:none;width:220px}
@@ -73,3 +74,15 @@
 .homepage .site-header.is-scrolled .site-nav a.nav-cta,.homepage .site-header.is-scrolled .site-nav a.nav-cta.active{color:var(--white)}
 .portfolio-grid{display:grid;gap:28px;grid-template-columns:repeat(2,1fr);margin:auto;max-width:var(--max);padding:100px 40px 120px}.portfolio-card{background:var(--warm);display:flex;flex-direction:column}.portfolio-image{display:block;aspect-ratio:1/1;overflow:hidden}.portfolio-image img{height:100%;object-fit:cover;transition:transform .5s ease;width:100%}.portfolio-image:hover img{transform:scale(1.04)}.portfolio-card-copy{padding:25px 28px 30px}.portfolio-card-copy h2{font-size:clamp(1.5rem,2.8vw,2.5rem);letter-spacing:-.045em;line-height:1.02;margin:8px 0 12px}.portfolio-card-copy p:not(.eyebrow){color:var(--gray);font-size:.9rem;margin:0 0 22px}.portfolio-card-copy .eyebrow{margin:0}
 @media(max-width:900px){.portfolio-grid{grid-template-columns:1fr;padding:70px 22px 80px}}
+
+/* Flags keep language switching recognizable without competing with the menu. */
+.language-mobile{display:none}
+.flag-link{align-items:center;display:inline-flex;height:18px;justify-content:center;margin:0!important;opacity:.62;transition:opacity 160ms ease,transform 160ms ease}
+.flag-link:hover,.flag-link.active{opacity:1;transform:translateY(-1px)}
+.flag-icon{display:block;height:14px;width:21px}
+@media(max-width:900px){.language-mobile{display:flex;margin-left:auto;margin-right:14px}.language-desktop{display:none}}
+
+/* Full-width shell with a tighter header rhythm. */
+.site-header{max-width:none;padding:14px max(22px,calc((100% - var(--max))/2 + 40px));width:100%}
+.brand-symbol{height:56px;width:56px}
+@media(max-width:900px){.site-header{padding:12px 20px}.brand-symbol{height:52px;width:52px}}

@@ -4,17 +4,34 @@ import Link from "next/link";
 import QuoteForm from "./quote-form";
 import { useEffect, useState } from "react";
 import { AumorexLogo } from "../components/brand/AumorexLogo";
+import { AumorexSymbol } from "../components/brand/AumorexSymbol";
 
 const whatsapp = "https://wa.me/40750402452?text=Hello%20AUMOREX%2C%20I%E2%80%99d%20like%20a%20quote%20for%20transporting%20my%20car.";
 type Lang = "en" | "de";
 
+function FlagIcon({ country }: { country: "uk" | "de" }) {
+  if (country === "de") {
+    return <svg className="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="13.33" fill="#111" /><rect y="13.33" width="60" height="13.34" fill="#D00" /><rect y="26.67" width="60" height="13.33" fill="#FFCE00" /></svg>;
+  }
+
+  return <svg className="flag-icon" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169" /><path d="M0 0 60 40M60 0 0 40" stroke="#FFF" strokeWidth="9" /><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" strokeWidth="4" /><path d="M30 0v40M0 20h60" stroke="#FFF" strokeWidth="15" /><path d="M30 0v40M0 20h60" stroke="#C8102E" strokeWidth="9" /></svg>;
+}
+
+function LanguageLinks({ className = "", active = "en", enHref = "/", deHref = "/de" }: { className?: string; active?: Lang; enHref?: string; deHref?: string }) {
+  const isEnglish = active === "en";
+  return <span className={`language ${className}`} aria-label="Language selection"><Link className="flag-link active" href={isEnglish ? deHref : enHref} aria-label={isEnglish ? "Switch to Deutsch" : "Switch to English"} title={isEnglish ? "Deutsch" : "English"}><FlagIcon country={isEnglish ? "uk" : "de"} /></Link></span>;
+}
+
 export function Header({ lang = "en", active = "" }: { lang?: Lang; active?: string }) {
   const de = lang === "de";
   const root = de ? "/de" : "";
+  const enHref = active === "portfolio" ? "/portfolio" : active === "quote" ? "/quote" : "/";
+  const deHref = active === "portfolio" ? "/de/portfolio" : active === "quote" ? "/de/quote" : "/de";
   return <header className="site-header">
-    <Link className="brand" href={root || "/"} aria-label="AUMOREX transport home"><AumorexLogo className="brand-logo brand-logo-primary" width={72} height={72} /><AumorexLogo className="brand-logo brand-logo-reversed" variant="reversed" width={72} height={72} alt="" /></Link>
+    <Link className="brand" href={root || "/"} aria-label="AUMOREX transport home"><AumorexSymbol className="brand-symbol brand-symbol-light" variant="light" interactive aria-label="AUMOREX TRANSPORT" width={72} height={72} /><AumorexSymbol className="brand-symbol brand-symbol-dark" variant="monochrome" interactive aria-label="AUMOREX TRANSPORT" width={72} height={72} /></Link>
+    <LanguageLinks className="language-mobile" active={lang} enHref={enHref} deHref={deHref} />
     <button className="menu-toggle" aria-expanded="false" aria-controls="site-nav">{de ? "Menü" : "Menu"}</button>
-    <nav id="site-nav" className="site-nav" aria-label="Primary navigation"><a href={`${root || "/"}#service`}>Service</a><a href={`${root || "/"}#routes`}>{de ? "Routen" : "Routes"}</a><Link className={active === "portfolio" ? "active" : ""} href={`${root}/portfolio`}>Portfolio</Link><a href={`${root || "/"}#about`}>{de ? "Über uns" : "About"}</a><Link className={`nav-cta ${active === "quote" ? "active" : ""}`} href={`${root}/quote`}>{de ? "Angebot anfragen" : "Get a quote"}</Link><span className="language"><Link className={!de ? "active" : ""} href={active === "portfolio" ? "/portfolio" : active === "quote" ? "/quote" : "/"}>EN</Link><span>/</span><Link className={de ? "active" : ""} href={active === "portfolio" ? "/de/portfolio" : active === "quote" ? "/de/quote" : "/de"}>DE</Link></span></nav>
+    <nav id="site-nav" className="site-nav" aria-label="Primary navigation"><a href={`${root || "/"}#service`}>Service</a><a href={`${root || "/"}#routes`}>{de ? "Routen" : "Routes"}</a><Link className={active === "portfolio" ? "active" : ""} href={`${root}/portfolio`}>Portfolio</Link><a href={`${root || "/"}#about`}>{de ? "Über uns" : "About"}</a><Link className={`nav-cta ${active === "quote" ? "active" : ""}`} href={`${root}/quote`}>{de ? "Angebot anfragen" : "Get a quote"}</Link><LanguageLinks className="language-desktop" active={lang} enHref={enHref} deHref={deHref} /></nav>
   </header>;
 }
 
