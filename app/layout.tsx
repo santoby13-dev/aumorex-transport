@@ -1,15 +1,32 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "../styles.css";
 
 export const metadata: Metadata = {
   title: { default: "AUMOREX transport — Dedicated car transport", template: "%s — AUMOREX transport" },
   description: "Dedicated car transport across Western Europe. Door to door.",
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/brand/aumorex/icons/favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/aumorex/icons/favicon.ico", sizes: "any" },
+    ],
+    apple: "/brand/aumorex/icons/icon-180.png",
+  },
+  manifest: "/brand/aumorex/site.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#142B3B",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        {/* brand.css is a public asset and must remain available at this stable URL. */}
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
+        <link rel="stylesheet" href="/brand/aumorex/brand.css" />
+      </head>
       <body>{children}</body>
     </html>
   );

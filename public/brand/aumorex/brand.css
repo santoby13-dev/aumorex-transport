@@ -1,0 +1,11 @@
+:root {
+  --aumorex-navy: #142B3B;
+  --aumorex-copper: #B86A42;
+  --aumorex-warm-white: #F5F4EF;
+}
+
+.aumorex-logo {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
