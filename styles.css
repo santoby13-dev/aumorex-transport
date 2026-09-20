@@ -11,16 +11,12 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media(max-width:560px){.back-to-top{bottom:18px;right:18px}}
 
-/* Use the approved AUMOREX SVG artwork consistently across every brand touchpoint. */
-.brand-logo{display:block;height:auto;flex:none;width:130px}
-.brand-logo-reversed{display:none}
-.footer-logo{display:block;height:auto;width:115px}
-.homepage .brand-logo-primary{display:none}
-.homepage .brand-logo-reversed{display:block}
-.homepage .site-header.is-scrolled .brand-logo-primary{display:block}
-.homepage .site-header.is-scrolled .brand-logo-reversed{display:none}
-.sr-only{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);white-space:nowrap}
-.empty-mark{background:url("/brand/aumorex/svg/symbol-only-primary.svg") center/contain no-repeat;border:0;color:transparent;display:block;font-size:0;height:220px;transform:none;width:220px}
+/* Use the approved favicon artwork consistently across every brand touchpoint. */
+.brand-mark{background:none;border-radius:9px;clip-path:none;display:block;height:40px;object-fit:cover;position:static;width:40px}
+.brand-mark.small{height:30px;width:30px}
+.footer-brand>span{display:flex;flex-direction:column}
+.footer-brand small{margin-left:0;margin-top:3px;text-align:left}
+.empty-mark{background:url("/favicon.svg") center/contain no-repeat;border:0;color:transparent;display:block;font-size:0;height:220px;transform:none;width:220px}
 
 /* Accessibility refinements for the compact brand system. */
 .brand small,.footer-brand small{font-size:.72rem;letter-spacing:.35em}

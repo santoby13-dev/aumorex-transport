@@ -3,7 +3,6 @@
 import Link from "next/link";
 import QuoteForm from "./quote-form";
 import { useEffect, useState } from "react";
-import { AumorexLogo } from "../components/brand/AumorexLogo";
 
 const whatsapp = "https://wa.me/40750402452?text=Hello%20AUMOREX%2C%20I%E2%80%99d%20like%20a%20quote%20for%20transporting%20my%20car.";
 type Lang = "en" | "de";
@@ -12,13 +11,13 @@ export function Header({ lang = "en", active = "" }: { lang?: Lang; active?: str
   const de = lang === "de";
   const root = de ? "/de" : "";
   return <header className="site-header">
-    <Link className="brand" href={root || "/"} aria-label="AUMOREX transport home"><AumorexLogo className="brand-logo brand-logo-primary" width={130} height={75} /><AumorexLogo className="brand-logo brand-logo-reversed" variant="reversed" width={130} height={75} alt="" /></Link>
+    <Link className="brand" href={root || "/"} aria-label="AUMOREX transport home"><img className="brand-mark" src="/favicon.svg" alt="" /><span><strong>AUMOREX</strong><small>transport</small></span></Link>
     <button className="menu-toggle" aria-expanded="false" aria-controls="site-nav">{de ? "Menü" : "Menu"}</button>
     <nav id="site-nav" className="site-nav" aria-label="Primary navigation"><a href={`${root || "/"}#service`}>Service</a><a href={`${root || "/"}#routes`}>{de ? "Routen" : "Routes"}</a><Link className={active === "portfolio" ? "active" : ""} href={`${root}/portfolio`}>Portfolio</Link><a href={`${root || "/"}#about`}>{de ? "Über uns" : "About"}</a><Link className={`nav-cta ${active === "quote" ? "active" : ""}`} href={`${root}/quote`}>{de ? "Angebot anfragen" : "Get a quote"}</Link><span className="language"><Link className={!de ? "active" : ""} href={active === "portfolio" ? "/portfolio" : active === "quote" ? "/quote" : "/"}>EN</Link><span>/</span><Link className={de ? "active" : ""} href={active === "portfolio" ? "/de/portfolio" : active === "quote" ? "/de/quote" : "/de"}>DE</Link></span></nav>
   </header>;
 }
 
-export function Footer({ lang = "en" }: { lang?: Lang }) { const de = lang === "de"; const root = de ? "/de" : ""; return <footer className="site-footer"><div className="footer-brand"><AumorexLogo className="footer-logo" variant="light" width={115} height={66} /><span className="sr-only">AUMOREX TRANSPORT</span></div><div className="footer-links"><Link href={`${root}/quote`}>{de ? "Angebot" : "Get a quote"}</Link><Link href={`${root}/portfolio`}>Portfolio</Link><Link href={de ? "/de" : "/legal"}>{de ? "Rechtliche Hinweise" : "Legal information"}</Link></div><div className="footer-meta"><span>{de ? "Dedizierter Autotransport in Westeuropa." : "Dedicated car transport across Western Europe."}</span><span>© AUMOREX transport</span></div></footer>; }
+export function Footer({ lang = "en" }: { lang?: Lang }) { const de = lang === "de"; const root = de ? "/de" : ""; return <footer className="site-footer"><div className="footer-brand"><img className="brand-mark small" src="/favicon.svg" alt="" /><span><strong>AUMOREX</strong><small>transport</small></span></div><div className="footer-links"><Link href={`${root}/quote`}>{de ? "Angebot" : "Get a quote"}</Link><Link href={`${root}/portfolio`}>Portfolio</Link><Link href={de ? "/de" : "/legal"}>{de ? "Rechtliche Hinweise" : "Legal information"}</Link></div><div className="footer-meta"><span>{de ? "Dedizierter Autotransport in Westeuropa." : "Dedicated car transport across Western Europe."}</span><span>© AUMOREX transport</span></div></footer>; }
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const [top, setTop] = useState(false);
