@@ -1,0 +1,8 @@
+:root {
+  --aumorex-navy: #142B3B;
+  --aumorex-copper: #B86A42;
+  --aumorex-warm-white: #F5F4EF;
+}
+.aumorex-logo { display:block; width:100%; height:auto; }
+.aumorex-logo--on-light { color:var(--aumorex-navy); }
+.aumorex-logo--on-dark { color:var(--aumorex-warm-white); }
