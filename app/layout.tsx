@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "../styles.css";
 
 export const metadata: Metadata = {
-  title: { default: "AUMOREX transport — Dedicated car transport", template: "%s — AUMOREX transport" },
-  description: "Dedicated car transport across Western Europe. Door to door.",
+  title: { default: "Dedicated Car Transport Across Western Europe | AUMOREX", template: "%s | AUMOREX transport" },
+  description: "AUMOREX provides dedicated, door-to-door car transport between Ireland, the UK, France, Spain, Portugal and other European destinations.",
   icons: {
     icon: [
       { url: "/brand/aumorex/icons/favicon.svg", type: "image/svg+xml" },
