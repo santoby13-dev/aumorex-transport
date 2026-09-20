@@ -106,6 +106,7 @@ h1,h2,h3{hyphens:auto}
 .section-copper .route-list small{color:#06141e}
 .section-copper h2 em{color:#06141e}
 .site-nav a,.menu-toggle,.language-mobile .flag-link,.footer-links a,summary,.back-to-top{align-items:center;display:inline-flex;min-height:44px}
+.menu-toggle{display:none}
 .menu-toggle{justify-content:center;padding:0 12px}
 .flag-link{width:44px}
 .footer-links a{padding:0 4px}
@@ -115,6 +116,7 @@ summary{justify-content:space-between;width:100%}
 .field-error{color:#843e2c!important;font-size:.78rem!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important}
 
 @media(max-width:900px){
+  .menu-toggle{display:inline-flex}
   .site-nav{gap:4px;padding:12px 20px 20px}
   .site-nav a{width:100%}
   .hero{grid-template-columns:minmax(0,1fr);min-height:0}
